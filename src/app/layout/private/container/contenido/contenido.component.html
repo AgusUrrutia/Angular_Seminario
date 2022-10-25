@@ -1,0 +1,16 @@
+<table class="table">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+          </tr>
+    </thead>
+    <tbody *ngFor="let imagen of imagenes">
+        <tr>
+            <th scope="row"><img src="{{imagen.url}}" alt=""></th>
+            <td *ngIf="isFav(imagen)"><a (click)="makeFav(imagen)"><img src="{{corazon1}}" alt=""></a></td>
+            <td *ngIf="!isFav(imagen)"><a (click)="makeFav(imagen)"><img src="{{corazon2}}" alt=""></a></td>
+        </tr>
+    </tbody>
+  </table>

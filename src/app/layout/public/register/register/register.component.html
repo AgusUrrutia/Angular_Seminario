@@ -1,0 +1,22 @@
+<app-principal></app-principal>
+<div style="width: 100%" class="d-flex justify-content-center" *ngIf="!visualizarMenu()">
+    <form [formGroup]="myForm" (ngSubmit)="sumbitFormulario()">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Usuario</label>
+        <input formControlName="usuario" [class.is-invalid]="f.usuario.errors && f.usuario.touched" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="validationServer03Feedback" class="invalid-feedback">
+            Usuario obligatorio
+          </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input [class.is-invalid]="f.password.errors && f.password.touched" formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+        <div id="validationServer03Feedback" class="invalid-feedback">
+            Password obligatorio
+          </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-primary">Register</button>
+      </div>
+    </form>
+  </div>

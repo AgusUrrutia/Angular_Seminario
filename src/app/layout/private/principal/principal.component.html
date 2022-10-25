@@ -1,0 +1,42 @@
+
+<div *ngIf="visualizarMenu()" >
+  <nav class="navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+          <a class="navbar-brand">{{this.user.usuario}}</a>
+          <a class="btn btn-outline-success" (click)="desLoguearse()" href="inicio">Logout</a>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+  </nav>
+
+
+  <div *ngIf="isAdmin()">
+    ¡Hola administrador : {{this.user.usuario}}!
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Usuario</th>
+          <th scope="col">Contraseña</th>
+          <th scope="col">Rol</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let usuario of usuarios">
+        <tr>
+          <th scope="row"></th>
+          <td>{{usuario.usuario}}</td>
+          <td>{{usuario.password}}</td>
+          <td>{{usuario.role}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div *ngIf="!isAdmin()">
+    ¡Hola usuario: {{user.usuario}}!
+    <app-contenido></app-contenido>
+  </div>
+</div>
